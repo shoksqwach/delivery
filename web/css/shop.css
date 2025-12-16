@@ -1,0 +1,16 @@
+.product-title:hover {
+  color: #000 !important;
+}
+
+.block-icon i.icon-favourite {
+  cursor: pointer;
+}
+
+i.icon-favourite:hover {
+  color: #aaa;
+}
+
+.like,
+.dislike {
+  cursor: pointer;
+}

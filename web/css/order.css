@@ -1,0 +1,17 @@
+.order-status {
+  padding: 3px 10px;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+
+.order-new {
+  background-color: rgb(197, 236, 197);
+}
+
+.order-cancel {
+  background-color: rgb(236, 197, 197);
+}
+
+.order-item-title {
+  color: #aaa;
+}
