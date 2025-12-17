@@ -1,19 +1,19 @@
 <?php
 
-namespace app\modules\account;
+namespace app\modules\courier;
 
 use Yii;
 use yii\filters\AccessControl;
 
 /**
- * account module definition class
+ * courier module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\account\controllers';
+    public $controllerNamespace = 'app\modules\courier\controllers';
 
     public function behaviors()
     {
@@ -24,14 +24,13 @@ class Module extends \yii\base\Module
                     [
                         'allow' => true,
                         'roles' => ['@'],
-                        'matchCallback' => fn() => Yii::$app->user->identity?->isClient ?? false,
+                        'matchCallback' => fn() => Yii::$app->user->identity?->isCourier ?? false,
                     ],
                 ],
                 'denyCallback' => fn() => Yii::$app->response->redirect('/'),
             ],
         ];
     }
-
 
     /**
      * {@inheritdoc}

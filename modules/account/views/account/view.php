@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
 
@@ -49,9 +49,13 @@ $this->title = "Заказ №" . $model->id . " от " . $time_order;
             //     'value' =>  $model?->reasonCancel ? nl2br($model?->reasonCancel?->comment) : "",
             //     'visible' => (bool)$model?->reasonCancel
             // ],
-
             [
-                'label' => 'Cостав заказа',
+                'label' => 'Курьер',
+                'format' => 'html',
+                'value' => $model?->courier_id ? nl2br($model->courier->name . ' ' . $model->courier->surname) : 'Не назначен',
+            ],
+            [
+                'label' => 'Просмотр заказа',
                 'format' => 'html',
                 'value' => $this->render('view-order-items', ['dataProviderItems' => $dataProviderItems,])
             ],

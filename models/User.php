@@ -61,16 +61,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'patronymic' => 'Patronymic',
-            'login' => 'Login',
-            'email' => 'Email',
-            'password' => 'Password',
-            'phone' => 'Phone',
-            'role_id' => 'Role ID',
-            'auth_key' => 'Auth Key',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'patronymic' => 'Отчество',
+            'login' => 'Логин',
+            'email' => 'Электронная почта',
+            'password' => 'Пароль',
+            'phone' => 'Телефон',
         ];
     }
 
@@ -197,15 +194,32 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
-    public function getIsAdmin()
+    public function getIsAdmin(): bool
     {
-        // Проверка через связанную модель Role (title = 'admin')
         return $this->role->title === 'admin';
     }
 
-    public function getIsClient()
+    public function getIsClient(): bool
     {
-        // Проверка через связанную модель Role (title = 'client')
         return $this->role->title === 'client';
+    }
+
+    public function getIsCourier(): bool
+    {
+        return $this->role->title === 'courier';
+    }
+
+    public static function getCouriers(): array
+    {
+        return static::find()
+            ->select('surname')
+            ->where(['role_id' => 3])
+            ->indexBy('id')
+            ->column();
+    }
+
+    public static function findByCourier($surname): User | null
+    {
+        return self::findOne(['surname' => $surname]);
     }
 }

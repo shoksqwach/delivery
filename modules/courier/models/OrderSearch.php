@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\account\models;
+namespace app\modules\courier\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -18,7 +18,7 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'user_id', 'amount', 'status_id'], 'integer'],
+            [['id', 'user_id', 'amount', 'status_id', 'courier_id'], 'integer'],
             [['created_at'], 'safe'],
             [['sum'], 'number'],
         ];
@@ -44,7 +44,8 @@ class OrderSearch extends Order
     public function search($params, $formName = null)
     {
         $query = Order::find()
-            ->where(['user_id' => Yii::$app->user->id]);
+            ->where(['courier_id' => Yii::$app->user->id])
+            ->andWhere(['!=', 'status_id', 4]);;
 
         // add conditions that should always apply here
 
@@ -68,6 +69,7 @@ class OrderSearch extends Order
             'amount' => $this->amount,
             'sum' => $this->sum,
             'status_id' => $this->status_id,
+            'courier_id' => $this->courier_id,
         ]);
 
         return $dataProvider;

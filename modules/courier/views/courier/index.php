@@ -9,19 +9,12 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\models\OrderSerach $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Панель администратора';
+$this->title = 'Панель курьера';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">
 
     <h3><?= Html::encode($this->title) ?></h3>
-
-
-    <p class="d-flex gap-3 my-3">
-        <?= Html::a('Управление товарами', ['product/index'], ['class' => 'btn btn-outline-primary']) ?>
-        <?= Html::a('Управление категориями', ['category/index'], ['class' => 'btn btn-outline-primary']) ?>
-        <?= Html::a('Управление курьерами', ['courier/index'], ['class' => 'btn btn-outline-primary']) ?>
-    </p>
 
     <div class="mt-5">
 

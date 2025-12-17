@@ -15,8 +15,8 @@ use yii\bootstrap5\Html;
         </div>
 
         <div class="d-flex gap-3">
-            <?php if ($model->user_id === Yii::$app->user->id): ?>
-                <?= Html::a('<i class="fas fa-pencil-alt"></i>', ['/account/comment/write', "product_id" => $model->product_id], ["class" => "text-warning btn-feedback-edit",  "data-pjax" => 0,]) ?>
+            <?php if (Yii::$app->user->identity?->isAdmin): ?>
+                <?= Html::a('<i class="fas fa-trash-alt"></i>', ['/admin/comment/delete', "id" => $model->id, 'product_id' => $model->product_id], ["class" => "text-danger btn-feedback-edit",  "data-pjax" => 0, "data-method" => 'post']) ?>
             <?php endif ?>
         </div>
     </div>

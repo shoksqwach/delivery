@@ -1,17 +1,17 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Favourite $model */
+/** @var app\models\User $model */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Favourites', 'url' => ['index']];
+$this->title = 'Курьер: ' . $model->surname;
+$this->params['breadcrumbs'][] = ['label' => 'Курьеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="favourite-view">
+<div class="user-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,8 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user_id',
-            'product_id',
+            'name',
+            'surname',
+            [
+                'label' => 'Отчество',
+                'format' => 'html',
+                'value' =>  $model->patronymic != null ? nl2br($model->patronymic) : "",
+                'visible' => $model->patronymic != null,
+            ],
+            'login',
+            'email',
+            'phone',
         ],
     ]) ?>
 

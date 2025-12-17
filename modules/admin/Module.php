@@ -21,32 +21,13 @@ class Module extends \yii\base\Module
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
-                    // разрешаем аутентифицированным пользователям
                     [
                         'allow' => true,
-                        'controllers' => ['admin/login'],
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'allow' => true,
-                        // любая аутентификация
                         'roles' => ['@'],
-                        // дополнительная проверка через модель Role
                         'matchCallback' => fn() => Yii::$app->user->identity?->isAdmin ?? false,
                     ],
-
-
-                    // всё остальное по умолчанию запрещено
                 ],
-
-                'denyCallback' => function () {
-
-                    if (Yii::$app->user?->identity) {
-                        return Yii::$app->response->redirect('/');
-                    }
-
-                    return Yii::$app->response->redirect('/admin/login');
-                }
+                'denyCallback' => fn() => Yii::$app->response->redirect('/'),
             ],
         ];
     }
@@ -57,7 +38,5 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-
-        // custom initialization code goes here
     }
 }

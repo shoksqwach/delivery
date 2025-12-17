@@ -17,21 +17,10 @@ use yii\bootstrap5\Html;
         <div><span class="text-secondary">Статус заказа: </span><span class="order-status fw-bold order-<?= $model->status->alias ?>"> <?= $model->status->title ?></span></div>
     </div>
     <div class="d-flex justify-content-end gap-2 p-2">
-        <?= $model->status->alias === 'new'
-            ? Html::a('В обработку', ['change-status', 'order_id' => $model->id, 'alias' => 'in_progress'], ['class' => "btn btn-outline-warning"])
-            : '' ?>
-        <?= $model->status->alias === 'new'
-            ? Html::a('Отменить', ['change-status', 'order_id' => $model->id, 'alias' => 'cancel'], ['class' => "btn btn-outline-danger"])
-            : '' ?>
-        <?= $model->status->alias === 'in_progress'
-            ? Html::a('В пути', ['change-status', 'order_id' => $model->id, 'alias' => 'driving'], ['class' => "btn btn-outline-info"])
-            : '' ?>
         <?= $model->status->alias === 'driving'
             ? Html::a('Заказ выполнен', ['change-status', 'order_id' => $model->id, 'alias' => 'final'], ['class' => "btn btn-outline-success"])
             : '' ?>
-        <?= $model->courier_id === null && ($model->status->alias === 'in_progress' || $model->status->alias === 'driving')
-            ? Html::a('Назначить курьера', ['appointment-courier', 'order_id' => $model->id], ['class' => "btn btn-outline-success"])
-            : '' ?>
+
         <?= Html::a('Состав заказа', ['view', 'id' => $model->id], ['class' => "btn btn-outline-primary"]) ?>
     </div>
 

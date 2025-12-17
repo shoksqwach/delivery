@@ -1,13 +1,13 @@
 <?php
 
 use yii\bootstrap5\LinkPager;
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\ActiveForm;
 use yii\widgets\ListView;
 
 /** @var yii\web\View $this */
 /** @var app\models\Order $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var yii\bootstrap5\ActiveForm $form */
 ?>
 
 <div class="order-form">

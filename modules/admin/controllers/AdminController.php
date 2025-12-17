@@ -2,11 +2,11 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Assist;
 use app\models\Order;
 use app\models\OrderItem;
 use app\models\Status;
-use app\modules\admin\models\OrderSerach;
+use app\modules\admin\models\OrderSearch;
+use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -42,14 +42,12 @@ class AdminController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new OrderSerach();
+        $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'statuses' => Assist::getColsItems(Status::tableName(), ['title', 'alias']),
-            'status_order' => Status::getStatusesAlias(),
         ]);
     }
 
@@ -71,55 +69,30 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Order model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
-    {
-        $model = new Order();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionChangeStatus($order_id, $status_id)
+    public function actionChangeStatus($order_id, $alias)
     {
         $model = $this->findModel($order_id);
-
-        // var_dump($model);
-        // die;
-        if ($this->request->isPost) {
-            $model->status_id = $status_id;
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        $model->status_id = Status::getStatusId($alias);
+        if ($model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->redirect('/admin');
     }
-    /**
-     * Deletes an existing Order model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id № заказа
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+    public function actionAppointmentCourier($order_id)
+    {
+        $model = $this->findModel($order_id);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Вы успешно назначили курьера!');
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        return $this->render('appointment', [
+            'model' => $model,
+        ]);
     }
 
     /**

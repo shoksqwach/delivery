@@ -9,7 +9,7 @@ use app\models\Order;
 /**
  * OrderSerach represents the model behind the search form of `app\models\Order`.
  */
-class OrderSerach extends Order
+class OrderSearch extends Order
 {
     /**
      * {@inheritdoc}

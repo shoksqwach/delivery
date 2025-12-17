@@ -60,6 +60,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ? ['label' => 'Панель администратора', 'url' => ['/admin']]
                     : '',
 
+                Yii::$app->user->identity?->isCourier
+                    ? ['label' => 'Панель курьера', 'url' => ['/courier']]
+                    : '',
+
                 Yii::$app->user->isGuest
                     ? ['label' => 'Вход', 'url' => ['/site/login']]
                     : '<li class="nav-item">'

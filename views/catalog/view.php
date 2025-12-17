@@ -3,7 +3,7 @@
 use app\models\Category;
 use yii\bootstrap5\LinkPager;
 use yii\bootstrap5\Modal;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\web\JqueryAsset;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /** @var app\models\Product $model */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Продукты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 
@@ -74,7 +74,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'pager' => [
             'class' => LinkPager::class,
         ]
-
     ]) ?>
 
     <?php Pjax::end(); ?>

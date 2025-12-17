@@ -1,16 +1,15 @@
 <?php
 
-namespace app\modules\account\models;
+namespace app\modules\admin\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Order;
-use Yii;
+use app\models\User;
 
 /**
- * OrderSearch represents the model behind the search form of `app\models\Order`.
+ * CourierSearch represents the model behind the search form of `app\models\User`.
  */
-class OrderSearch extends Order
+class CourierSearch extends User
 {
     /**
      * {@inheritdoc}
@@ -18,9 +17,8 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'user_id', 'amount', 'status_id'], 'integer'],
-            [['created_at'], 'safe'],
-            [['sum'], 'number'],
+            [['id', 'role_id'], 'integer'],
+            [['name', 'surname', 'patronymic', 'login', 'email', 'password', 'phone', 'auth_key'], 'safe'],
         ];
     }
 
@@ -43,8 +41,8 @@ class OrderSearch extends Order
      */
     public function search($params, $formName = null)
     {
-        $query = Order::find()
-            ->where(['user_id' => Yii::$app->user->id]);
+        $query = User::find()
+            ->where(['role_id' => 3]);
 
         // add conditions that should always apply here
 
@@ -63,12 +61,17 @@ class OrderSearch extends Order
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_at' => $this->created_at,
-            'user_id' => $this->user_id,
-            'amount' => $this->amount,
-            'sum' => $this->sum,
-            'status_id' => $this->status_id,
+            'role_id' => $this->role_id,
         ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'surname', $this->surname])
+            ->andFilterWhere(['like', 'patronymic', $this->patronymic])
+            ->andFilterWhere(['like', 'login', $this->login])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'password', $this->password])
+            ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'auth_key', $this->auth_key]);
 
         return $dataProvider;
     }

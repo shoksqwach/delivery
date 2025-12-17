@@ -1,7 +1,7 @@
 <?php
 
 use app\models\Product;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;

@@ -17,7 +17,7 @@ $this->title = "Заказ №" . $model->id . " от " . $time_order;
     <h3><?= Html::encode($this->title) ?></h3>
 
     <p>
-        <?= Html::a('К заказам', ['/admin'], ['class' => 'btn btn-outline-primary']) ?>
+        <?= Html::a('К заказам', ['/courier'], ['class' => 'btn btn-outline-primary']) ?>
 
     </p>
 
@@ -46,28 +46,23 @@ $this->title = "Заказ №" . $model->id . " от " . $time_order;
 
             'amount',
             'sum',
-            [
-                'attribute' => 'status_id',
-                'format' => 'html',
-                'value' => "<span class=\"order-status order-{$model->status->alias}\">"
-                    . $model->status->title
-                    . '</span>'
-                // . ($model?->reasonCancel && $model?->reasonCancel->user_id !== Yii::$app->user->id
-                //     ? "(заказ отменил: {$model->reasonCancel->user->full_name})"
-                //     : ""
-                // ),
-            ],
+            // [
+            //     'attribute' => 'status_id',
+            //     'format' => 'html',
+            //     'value' => "<span class=\"order-status order-{$model->status->alias}\">"
+            //         . $model->status->title
+            //         . '</span>'
+            //         . ($model?->reasonCancel
+            //             ? "(заказ отменил: {$model->reasonCancel->user->full_name})"
+            //             : ""
+            //         ),
+            // ],
             // [
             //     'label' => 'Причина отмены заказа',
             //     'format' => 'html',
             //     'value' =>  $model?->reasonCancel ? nl2br($model?->reasonCancel?->comment) : "",
             //     'visible' => (bool)$model?->reasonCancel
             // ],
-            [
-                'label' => 'Курьер',
-                'format' => 'html',
-                'value' => $model?->courier_id ? nl2br($model->courier->name . ' ' . $model->courier->surname) : 'Не назначен',
-            ],
             [
                 'label' => 'Просмотр заказа',
                 'format' => 'html',

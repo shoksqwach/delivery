@@ -30,23 +30,6 @@ $config = [
             'errorAction' => 'site/error',
         ],
 
-        //Ya8Ox5cFddkWer450dUv
-
-        'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
-            'viewPath' => '@app/mail',
-            // send all mails to a file by default.
-            'useFileTransport' => false,
-            'transport' => [
-                'class' => 'Swift_SmtpTrasport',
-                'scheme' => 'smtps',
-                'host' => 'smpt.mail.ru',
-                'username' => 'iv2-22-web@mail.ru',
-                'password' => 'Ya8Ox5cFddkWer450dUv',
-                'port' => 465,
-            ],
-        ],
-
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -75,8 +58,9 @@ $config = [
             'class' => 'app\modules\account\Module',
             'defaultRoute' => 'account',
         ],
-        'dmf' => [
-            'class' => 'app\modules\dmf\Module',
+        'courier' => [
+            'class' => 'app\modules\courier\Module',
+            'defaultRoute' => 'courier',
         ],
     ],
 

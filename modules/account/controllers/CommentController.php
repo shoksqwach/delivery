@@ -95,7 +95,7 @@ class CommentController extends Controller
             if ($model->load($this->request->post())) {
                 $model->user_id = Yii::$app->user->id;
                 if ($model->save()) {
-                    return true;
+                    return $this->redirect(['../catalog/view', 'id' => $model->product_id]);
                 }
             }
         } else {
