@@ -57,9 +57,15 @@ class CartController extends Controller
 
     public function actionDelete($item_id)
     {
-        $model = CartItem::findOne(['id' => $item_id]);
-        if ($model) {
-            $model->delete();
+        $item = CartItem::findOne(['id' => $item_id]);
+        if ($item) {
+            $cart = Cart::findOne(['id' => $item->cart_id]);
+            if ($cart) {
+                $cart->amount -= $item->amount;
+                $cart->sum -= $item->sum;
+                $cart->save();
+            }
+            $item->delete();
         }
         return $this->asJson(true);
     }

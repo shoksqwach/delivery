@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\CartItem;
 
 /**
  * This is the model class for table "cart".
@@ -127,6 +128,17 @@ class Cart extends \yii\db\ActiveRecord
 
     public static function getCount()
     {
-        return static::findOne(['user_id' => Yii::$app->user->id])?->amount ?? 0;
+        if (Yii::$app->user->isGuest) {
+            return 0;
+        }
+        
+        $cart = static::findOne(['user_id' => Yii::$app->user->id]);
+        if (!$cart) {
+            return 0;
+        }
+        
+        return (int) CartItem::find()
+            ->where(['cart_id' => $cart->id])
+            ->sum('amount') ?? 0;
     }
 }

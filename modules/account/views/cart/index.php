@@ -54,7 +54,7 @@ $cartNoEmpty = $cart && $dataProviderItems->totalCount;
                 ? Html::a('Оформить заказ', ['/account/account/create', 'cart_id' => $cart->id], ['class' => 'btn btn-outline-primary'])
                 : ""
             ?>
-            <?= Html::a('Продолжить покупки', ['/'], ['class' => 'btn btn-outline-info', 'data-pjax' => 0]) ?>
+            <?= Html::a('Продолжить покупки', ['/catalog'], ['class' => 'btn btn-outline-info', 'data-pjax' => 0]) ?>
         </div>
     </div>
     <?php Pjax::end(); ?>

@@ -78,7 +78,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         ]);
         ?>
         <div>
-            <?php if (Yii::$app->user->identity?->isClient): ?>
+            <?php 
+            $isCartPage = Yii::$app->controller->module && 
+                          Yii::$app->controller->module->id === 'account' && 
+                          Yii::$app->controller->id === 'cart';
+            if (Yii::$app->user->identity?->isClient && !$isCartPage): ?>
                 <div class="d-flex">
                     <?= Html::a('<i class="fas fa-shopping-basket text-white"></i>', '/account/cart') ?>
                     <div class="mx-2 text-white">(<span id="cart-items-count"><?= Cart::getCount() ?></span>)

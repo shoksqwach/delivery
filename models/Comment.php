@@ -77,4 +77,8 @@ class Comment extends \yii\db\ActiveRecord
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
+    public static function getComment($product_id): Comment | null
+    {
+        return static::findOne(['product_id' => $product_id, 'user_id' => Yii::$app->user->id]);
+    }
 }

@@ -3,7 +3,6 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Comment;
-use app\models\Feedback;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;

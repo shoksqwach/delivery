@@ -6,7 +6,6 @@ use app\models\RegisterCourier;
 use app\models\UpdateCourier;
 use app\models\User;
 use app\modules\admin\models\CourierSearch;
-use Symfony\Component\VarDumper\VarDumper;
 use Yii;
 use yii\bootstrap5\ActiveForm;
 use yii\web\Controller;

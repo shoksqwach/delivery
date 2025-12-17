@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Category;
+use app\models\Comment;
 use yii\bootstrap5\LinkPager;
 use yii\bootstrap5\Modal;
 use yii\bootstrap5\Html;
@@ -24,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p class="d-flex gap-3">
         <?= Html::a('В каталог', ['/catalog'], ['class' => 'btn btn-outline-primary']) ?>
-        <?= !$model?->comments
+        <?= Yii::$app->user->identity?->isClient && !Comment::getComment($model->id)
             ? Html::a('Отзыв', ['/account/comment/write', 'product_id' => $model->id], ['class' => 'btn btn-outline-info btn-feedback'])
             : ""
         ?>
