@@ -24,7 +24,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         "https://use.fontawesome.com/releases/v5.15.4/css/all.css",
-        'css/shop.css'
+        'css/shop.css',
+        'css/style.css',
     ];
     public $js = [
         // "https://use.fontawesome.com/releases/v5.15.4/js/all.js",

@@ -1,0 +1,167 @@
+#main {
+    animation: main 2s ease 1;
+    
+}
+
+ body{
+    background-color: rgb(240, 255, 250);
+}
+
+@keyframes main {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.is-invalid {
+    animation: is-invalid 1s ease 1;
+
+}
+
+@keyframes is-invalid {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+
+.is-valid {
+    animation: is-valid 1s ease 1;
+
+}
+
+@keyframes is-valid {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+}
+
+
+
+.invalid-feedback {
+    animation: invalid-feedback 1s ease 1;
+
+}
+
+@keyframes invalid-feedback {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+.img-style {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    transition: 1s;
+    cursor: pointer;
+    filter: opacity(50%);
+}
+
+.img-style:hover {
+    scale: 1.5;
+    filter: opacity(100%);
+
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.mess {
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.carousel-style {
+    /* height: auto;
+    width: 600px; */
+    padding: 40px;
+
+}
+
+@media(max-width:992px) {
+    .carousel-style {
+        width: 300px;
+        padding: 5px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.p-style {
+    font-size: larger;
+    padding-top: 50px;
+}
+
+@media(max-width:992px) {
+    .p-style {
+        padding-top: 0px;
+        font-size:medium;
+    }
+}
+
+.navbar-bg{
+    background-color: rgb(115, 198, 171);
+}
+
+.footer-bg{
+    background-color: rgb(115, 198, 171);
+    color: rgb(255, 255, 255);
+}
+
+
+
+.dis-like{
+    max-width: 30px;
+    max-height: auto;
+}
+
+@font-face {
+    font-family: 'Roboto Flex';
+    src: url(/web/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
+h1{
+    font-family: 'Roboto Flex';
+}
+
+h2{
+    font-family: 'Roboto Flex';
+}
+
+h3{
+    font-family: 'Roboto Flex';
+}
+
+
+p{
+    font-family: 'Roboto Flex';
+}
+

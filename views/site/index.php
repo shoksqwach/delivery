@@ -4,50 +4,60 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
+<div class="jumbotron text-center bg-transparent mt-5 mb-5">
+        <h1 class="display-4">Вкусная Доставка</h1>
+        <p class="lead">Продукты премиум-качества с доставкой на дом</p>
     </div>
 
-    <div class="body-content">
+       <div class="body-content text-center">
 
         <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="col-lg-4 mb-3 mb-5">
+                <img src="/web/img/eda1.jpg" alt="1" class="img-style mb-3">
+                <h2>Качественные <br> продукты</h2>
             </div>
             <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <img src="/web/img/eda2.jpg" alt="1" class="img-style mb-3">
+                <h2>Быстрая <br> доставка</h2>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <img src="/web/img/eda3.jpg" alt="1" class="img-style mb-3">
+                <h2>Удобные <br> цены</h2>
             </div>
         </div>
+
+        <div class="row align-items-center">
+
+
+                <div id="carouselExampleInterval" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="/web/img/1.jpg" class="d-block w-100" alt="1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="/web/img/2.jpg" class="d-block w-100" alt="2">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="/web/img/3.jpg" class="d-block w-100" alt="3">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="/web/img/4.jpg" class="d-block w-100" alt="4">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="/web/img/5.jpg" class="d-block w-100" alt="5">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev m-3" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Назад</span>
+                    </button>
+                    <button class="carousel-control-next m-3" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Вперед</span>
+                    </button>
+                </div>
+            </div>
+
 
     </div>
 </div>

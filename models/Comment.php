@@ -52,7 +52,7 @@ class Comment extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => 'User ID',
             'product_id' => 'Product ID',
-            'text' => 'Text',
+            'text' => 'Комментарий',
             'created_at' => 'Created At',
         ];
     }

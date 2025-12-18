@@ -27,7 +27,7 @@ Yii::debug($model->dislike_count);
                         class="<?= !Yii::$app->user->isGuest && Yii::$app->user->identity->isClient ? 'like' : 'disabled' ?>"
                         data-url="<?= !Yii::$app->user->isGuest && Yii::$app->user->identity->isClient
                                         ? Url::to(['user-action', 'product_id' => $model->id, 'action' => 1])
-                                        : "" ?>">👍🏻</span>
+                                        : "" ?>"><img src="../../web/img/like.png" alt="like" class="dis-like"></span>
                     <?= $model->like_count ? $model->like_count : 0 ?>
                 </div>
                 <div class="text-danger">
@@ -35,7 +35,7 @@ Yii::debug($model->dislike_count);
                         class="<?= !Yii::$app->user->isGuest && Yii::$app->user->identity->isClient ? 'dislike' : 'disabled' ?>"
                         data-url="<?= !Yii::$app->user->isGuest && Yii::$app->user->identity->isClient
                                         ? Url::to(['user-action', 'product_id' => $model->id, 'action' => 0])
-                                        : "" ?>">👎🏻</span>
+                                        : "" ?>"><img src="../../web/img/dislike.png" alt="dislike" class="dis-like"></span>
                     <?= $model->dislike_count ? $model->dislike_count : 0 ?>
                 </div>
             </div>
